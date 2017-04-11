@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <!--<link rel="stylesheet" href="../CSS/style.css">-->
+    <style type="text/css">
+        .div_01,.p_01,a{
+             display: inline-block;
+             width: 100px;
+             height: 100px;
+             background-color: red;
+             color: black;
+             vertical-align: top;
+             margin: 0;
+            text-decoration: none;
+         }
+        .father{
+            width: 40%;
+            color: black;
+            font-size: 40px;
+            background-color: darkcyan;
+            font-weight: bold;
+        }
+        #div{
+            font-size: 20px;
+            color: mediumslateblue;
+        }
+        .div_02{
+            font-size: 40px;
+            color: red !important;
+        }
+        .div_f{
+            color: mediumslateblue;
+        }
+        .div_s{
+            color: orangered;
+        }
+        #div_f{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <!--标签的分类
+        块元素  ->  div , h1-h6 , p , ul , li等
+                特点 -> 独占一行 , 宽度是父视图的宽度.
+        行内元素 -> span ,a , strong , em , ins 等
+                特点 -> 不会自动换行 , 一行显示.
+                     -> 不能直接定义宽高
+        行内块元素 也叫内联元素 -> img , input.
+                特点 -> 可以定义宽高 不会自动换行.
+        类型装换: display: inline   转行内元素.
+                 display: block;   转块级元素.
+                 display: inline-block   转行内块元素.
+    -->
+    <div class="div_01">块级元素转行内块元素_div</div>
+    <p class="p_01"> 块级元素转行内块元素_p </p>
+    <a href="https://www.baidu.com" target="_blank" >百度</a>
+    <br>
+    <!--CSS三大特性:层叠行 , 继承性 , 优先级-->
+    <!--标签的继承性
+        继承发生的前提是有包含关系.
+        子类会自动继承父类的样式.
+        特殊情况 : h标签不能继承字体大小
+                  a标签不能继承文字颜色
+                  注:不是不能继承而是被浏览器webkit覆盖.
+    -->
+    <div class="father">
+        <div class="son">子类标签</div>
+    </div>
+    <br>
+    <!--标签的优先级
+        默认样式 < 标签选择器 < 类选择器 < ID选择器 < 行内样式 < !important
+        !important 提高优先级到最高
+    -->
+    <div class="div_02" id="div" style="font-size: 10px; color: blue"> 标签的优先级 </div>
+    <br>
+    <!--优先级权重会叠加
+        当子类没有样式的时候会继承父类的样式
+        当子类有样式时使用自己的样式 此时继承的权重为 0
+    -->
+    <div class="div_f" id="div_f">
+        <div class="div_s"> 子类标签的继承权重问题</div>
+    </div>
+    <!--<img src="../Resource/swk.jpg" alt="悟空" title="悟空">-->
+</body>
+</html>

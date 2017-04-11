@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>JS_DOM</title>
+    <style>
+        img {
+            width: 200px;
+            height: 200px;
+        }
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: indianred;
+        }
+        .aaa {
+            width: 100px;
+            height: 100px;
+            background-color: orangered;
+        }
+    </style>
+</head>
+<script>
+    window.onload = function () {
+
+        function changeImage() {
+            document.getElementById("img").src = "../Resource/1.jpg";
+        }
+        //整个界面标签全部加载完成后再加载JS
+        var element = document.getElementById("box");
+        element.onclick = function () {
+            element.style.backgroundColor = "red";
+            element.innerHTML += "&nbsp;world";
+        }
+
+//        function demo() {
+//            var element = document.getElementById("box");
+////            element.innerHTML = "hello";
+////            element.style.backgroundColor = 'orange';
+//            element.className = "aaa";
+//        }
+        //-----------------------------------------------------------------------
+        //value：标签的value属性。
+        console.log(document.getElementById("inp1").value);
+
+        //innerHTML：获取双闭合标签里面的内容。（识别标签）获取对应标签中所有的内容.
+        console.log(document.getElementById("box1").innerHTML);
+        document.getElementById("box1").innerHTML = "<h1>我是innerHTML</h1>";
+
+        //innerText：获取双闭合标签里面的内容。（不识别标签）（老版本的火狐用textContent）
+        console.log(document.getElementById("box3").innerText);
+        document.getElementById("box3").innerText = "<h1>我是innerText</h1>";
+    }
+</script>
+<body>
+    <img src="../Resource/3.jpg" alt="" id="img" onclick="changeImage()">
+    <button type="button" onclick="changeImage()">改变</button>
+    <br>
+    <div id="box" onclick="demo()">hello</div>
+    <hr>
+    <input id="inp1" type="text" value="我是input的value属性值"/>
+
+    <div id="box1">
+        我是box1的内容
+        <div id="box2">我是box2的内容</div>
+    </div>
+
+    <div id="box3">
+        我是box1的内容
+        <div id="box4">我是box2的内容</div>
+    </div>
+</body>
+</html>

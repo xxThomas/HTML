@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+
+<body>
+    <a href="javascript:changeImage()" style="display: block ;width: 100px">切换1</a>
+    <a href="https://www.baidu.com" style="display: block ;width: 100px" id="a" target="_blank">切换2</a><br>
+    <img src="../Resource/1.jpg"  alt="" style="width: 400px" id="img">
+
+    <hr>
+    <div class="box" id="box1" style="background-color: crimson;width: 300px;height: 300px;box-shadow: #666 0px 0px 10px;">
+        <div id="box2" style="background-color: sandybrown;width: 200px;height: 200px;box-shadow: #666 0px 0px 10px;">
+            <div id="box3" style="background-color:indianred ;width: 100px;height: 100px;box-shadow: #666 0px 0px 10px;">
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        function changeImage() {
+            var element = document.getElementById("img");
+            element.src = "../Resource/3.jpg";
+        }
+
+        var a = document.getElementById("a");
+        a.target = "_blank";
+        a.onclick = function () {
+            var element = document.getElementById("img");
+            element.src = "../Resource/2.jpg";
+            //禁止a连接跳转.
+            return false;
+        }
+        //----------------------获取元素节点--------------------------
+        //获取父节点.
+        var box = document.getElementById("box2");
+        console.log(box);
+        console.log(box.parentNode);
+        //.nextElementSibling下一个兄弟节点
+        console.log(box.nextSibling);
+        //获取第一个子元素
+        console.log(box.parentNode.firstChild);
+        //获取所有元素  这是一个数组
+        console.log(box.parentNode.childNodes);
+        console.log(box.parentNode.children);
+
+        //----------------------操作元素节点--------------------------
+        //增
+        var a = document.createElement("a");
+        a.href = "https://www.baidu.com";
+        a.innerText = "百度";
+        console.log(a);
+        var b = document.createElement("a");
+        b.href = "https://www.sina.com";
+        b.innerText = "新浪";
+        console.log(b);
+        //添加
+        var div = document.getElementsByClassName("box")[0];
+        console.log(div);
+        div.appendChild(a);
+        div.insertBefore(b,a);
+        //删
+        div.removeChild(b);
+        //克隆
+        var c = div.cloneNode();
+        var d = div.cloneNode(true);
+        console.log("c = " + c);
+        console.log(d);
+
+
+    </script>
+</body>
+</html>

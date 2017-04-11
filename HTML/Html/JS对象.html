@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>js对象</title>
+</head>
+<script>
+    var person = new Object();
+    person.name = "thomas";
+    person.sex = "男";
+    person.age = 19;
+    person.action = function () {
+//        console.log("hello world");
+        return "hello world";
+    }
+    person.say = function () {
+        console.log(this.name + " : " + person.action());
+    }
+    person.say();
+
+    //构造函数. 用来创建对象的函数
+    function Student(name) {
+        this.name = name;
+        this.say = function () {
+            console.log(this.name + "正在学JS");
+        }
+    }
+    var stu = new Student("thomas");
+    stu.say();
+
+    //json
+    var json = {name:"thomas",age:18,arr:[1,2,3]};
+    for (var key in json){
+        console.log(json[key]);
+    }
+
+    var json1 = {};
+    for(var i = 0 ; i < 10 ; i++){
+        json1["ksy"+i] = i;
+    }
+    console.log(json1);
+
+</script>
+<body>
+    <!--
+        this和new的区别
+        - this 只出现在函数中,谁调用函数this就指代谁.
+        - new person(); 中this指代被创建的对象.
+        - new的工作原理:
+            - 开辟了存储空间.
+            - 把this设置为当前对象.
+            - 执行内部代码 , 设置对应的对象和属性.
+            - 返回新创建的对象.
+        注意简单类型的值传递和地址传递
+    -->
+
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>验证表单</title>
+
+</head>
+<body>
+    <!------------------1------------------>
+    账号 : <input type="text" id="account"><br>
+    密码 : <input type="password" id="pwd"><br>
+
+    <input type="text" id="input">
+    <select name="" id="sel" onchange="selDemo()">
+        <option value="1">香蕉</option>
+        <option value="2">橙子</option>
+        <option value="3">菠萝</option>
+        <option value="4">苹果</option>
+    </select><br><br>
+
+    <!----------------script---------------->
+    <script>
+        //----------------1----------------
+        var account = document.getElementById("account");
+        var pwd = document.getElementById("pwd");
+        account.onblur = function () {
+
+        }
+
+        function selDemo() {
+            var input = document.getElementById("input");
+
+            var obj = document.getElementById("sel"); //定位id
+
+            var index = obj.selectedIndex; // 选中索引
+
+            var text = obj.options[index].text; // 选中文本
+
+            var value = obj.options[index].value; // 选中值
+
+            input.value = text;
+        }
+    </script>
+</body>
+</html>

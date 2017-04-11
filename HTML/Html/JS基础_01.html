@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>JS基础01</title>
+</head>
+<script type="text/javascript" src="../JS/js_01.js">
+
+</script>
+<body>
+    <script>
+        //<!--回调函数 : 函数做为参数进行传递和使用-->
+        function fn(demo) {
+           return demo();
+        }
+        function test() {
+            return 1 + 1;
+        }
+        var a = fn(test);
+        console.log(a);
+
+        //---------------------------------------
+        function funcWithBlock(func1) {
+            return func1(10,2);
+        }
+        function demo(a,b) {
+            return a + b;
+        }
+        var b = funcWithBlock(demo);
+        console.log(b);
+
+        //---------------------------------------
+        function funcWithBlock1(num1,num2,func1) {
+            return func1(num1,num2);
+        }
+        function demo1(a,b) {
+            return a * b;
+        }
+        var c = funcWithBlock1(10,20,demo1);
+        console.log(c);
+
+        function test1() {
+            console.log("hello world");
+        }
+        // 定时器
+        // setInterval(test1,1000);
+    </script>
+    <!--
+        www.codecombat.cn/   编程游戏
+        www.webhek.com   JS特效网站
+    -->
+    <div onclick="test()">点我出提示</div>
+
+    <!--定时器-->
+
+
+
+    <!--回调函数-->
+
+</body>
+</html>
