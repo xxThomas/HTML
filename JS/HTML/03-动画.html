@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            margin: 50px;
+            position: relative;
+            left: 10px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="btn">动画</button>
+
+    <div id="box"></div>
+
+    <script>
+        var btn = document.getElementById("btn");
+        var box = document.getElementById("box");
+        var timer = null;
+        //闪现
+//        btn.onclick = function () {
+//            box.style.left = "500px";
+//        }
+        //匀速
+//        btn.onclick = function () {
+//            timer = setInterval(function () {
+//                box.style.left = box.offsetLeft + 10 + "px";
+//            },60);
+//        }
+
+        //逐渐减速动画
+        var target = 200;
+        btn.onclick = function () {
+            clearInterval(timer);
+            timer = setInterval(function() {
+                /* 动画原理： 盒子本身的位置 + 步长
+                 div.style.left = div.offsetLeft + 10 + "px";*/
+                box.style.left = box.offsetLeft + (target - box.offsetLeft)/10 + "px";
+            } ,30)
+        }
+
+
+    </script>
+
+</body>
+</html>

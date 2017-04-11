@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>文本框获取焦点</title>
+    <style>
+        input {
+            width: 300px;
+            height: 36px;
+            padding-left: 5px;
+            color: #ccc;
+        }
+        label {
+            position: absolute;
+            top: 82px;
+            left: 56px;
+            font-size: 12px;
+            color: #ccc;
+            cursor: text;
+        }
+        .hide {
+            display: none;
+        }
+        .show {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    京东:<input id="inp1" type="text" value="我是京东"/><br><br>
+    淘宝:<label for="inp2">我是淘宝</label><input id="inp2" type="text"/><br><br>
+    placeholder:<input type="text" placeholder="我是placeholder"/>
+
+    <script>
+        var inp1 = document.getElementById("inp1");
+        //获取焦点后将文字移除
+        inp1.onfocus = function () {
+            if (inp1.value == "我是京东"){
+                inp1.value = "";
+            }
+        }
+        //失去焦点后的方法
+        inp1.onblur = function () {
+            if(inp1.value == ""){
+                inp1.value = "我是京东";
+            }
+        }
+
+
+        var inp2 = document.getElementById("inp2");
+        var lab = document.getElementsByTagName("label")[0];
+        //获取焦点后将文字移除
+        inp2.onfocus = function () {
+            if (lab.innerText == "我是淘宝"){
+                lab.className = "hide";
+                lab.innerText = "";
+            }
+        }
+        //失去焦点后的方法
+        inp2.onblur = function () {
+            if(lab.innerText == "" && inp2.value == ""){
+                lab.className = "show";
+                lab.innerText = "我是淘宝";
+            }
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .div {
+            width: 100px;
+            height: 100px;
+            padding: 10px;
+            background-color: indianred;
+        }
+    </style>
+</head>
+<body>
+    <!--
+        offsetWidth 和 offsetHeight 可以用来检测盒子的宽高.
+            - 包括padding的距离和border的距离 , 但是不包括margin的距离
+        获取已经定位的元素的 left 和 right :
+            - 如果被获取得到元素没有定位, 则以浏览器为基准.
+            - 返回最近距离上级盒子 , 在左上位置.
+            - 父盒子边框不算 , 从父盒子padding开始计算.
+         offsetparent
+    -->
+    <div class="div"></div>
+
+</body>
+</html>

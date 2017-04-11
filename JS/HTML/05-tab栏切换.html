@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tab栏切换</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .box {
+            width: 400px;
+            height: 300px;
+            margin: 200px auto;
+            background-color: indianred;
+            overflow: hidden;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+        }
+        li {
+            width: 80px;
+            height: 40px;
+            float: left;
+            line-height: 40px;
+            background-color: orange;
+        }
+        .span {
+            margin-top: 40px;
+        }
+        span {
+            width: 400px;
+            height: 260px;
+            display: none;
+            font: 400 130px/260px "simsun";
+            background-color: yellow;
+        }
+        .show {
+            display: block;
+        }
+        .current {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="box">
+        <ul>
+            <li class="current">鞋子</li>
+            <li>袜子</li>
+            <li>帽子</li>
+            <li>裤子</li>
+            <li>裙子</li>
+        </ul>
+        <div class="span">
+            <span class="show">鞋子</span>
+            <span>袜子</span>
+            <span>帽子</span>
+            <span>裤子</span>
+            <span>裙子</span>
+        </div>
+    </div>
+    <div class="box">
+        <ul>
+            <li class="current">鞋子</li>
+            <li>袜子</li>
+            <li>帽子</li>
+            <li>裤子</li>
+            <li>裙子</li>
+        </ul>
+        <div class="span">
+            <span class="show">鞋子</span>
+            <span>袜子</span>
+            <span>帽子</span>
+            <span>裤子</span>
+            <span>裙子</span>
+        </div>
+    </div>
+    <div class="box">
+        <ul>
+            <li class="current">鞋子</li>
+            <li>袜子</li>
+            <li>帽子</li>
+            <li>裤子</li>
+            <li>裙子</li>
+        </ul>
+        <div class="span">
+            <span class="show">鞋子</span>
+            <span>袜子</span>
+            <span>帽子</span>
+            <span>裤子</span>
+            <span>裙子</span>
+        </div>
+    </div>
+
+    <!---------------------------------javaScript--------------------------------->
+    <script>
+        var box = document.getElementsByClassName("box");
+        for (var i = 0; i < box.length; i++){
+            fn(box[i]);
+        }
+        function fn(element) {
+
+            var liArr = element.getElementsByTagName("li");
+            var spanArr = element.getElementsByTagName("span");
+            for (var i = 0; i < liArr.length; i++){
+                liArr[i].index = i;
+                liArr[i].onmousemove = function () {
+                    for(var j = 0; j < liArr.length; j++){
+                        liArr[j].className = "";
+                        spanArr[j].className = "";
+                    }
+                    this.className = "current";
+                    spanArr[this.index].className = "show";
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>

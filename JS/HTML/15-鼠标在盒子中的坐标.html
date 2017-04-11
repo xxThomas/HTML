@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>鼠标在盒子中的坐标</title>
+    <style>
+        .box  {
+            width: 300px;
+            height: 200px;
+            padding-top: 100px;
+            background-color: pink;
+            margin: 100px;
+            text-align: center;
+            font: 18px/30px "simsun";
+            cursor: pointer;
+        }
+    </style>
+    <script src="../JS/animateTools.js"></script>
+</head>
+<body>
+    <div class="box"></div>
+    <script>
+
+        var div = document.getElementsByTagName("div")[0];
+
+        div.onmousemove = function (event) {
+            event = event || window.event;
+            var pagex = event.pageX || scroll().left + event.clientX;
+            var pagey = event.pageY || scroll().top + event.clientY;
+            var targetx = pagex - div.offsetLeft;
+            var targety = pagey - div.offsetTop;
+            this.innerHTML = "鼠标在盒子中的X坐标为："+targetx+"px;<br>鼠标在盒子中的Y坐标为："+targety+"px;"
+        }
+
+    </script>
+</body>
+</html>

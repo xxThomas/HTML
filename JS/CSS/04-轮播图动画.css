@@ -1,0 +1,46 @@
+@charset "UTF-8";
+* {
+    margin: 0;
+    padding: 0;
+}
+.box {
+    width: 490px;
+    height: 170px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    margin: 200px auto;
+}
+.inner {
+    width: 490px;
+    height: 170px;
+    position: relative;
+    overflow: hidden;
+}
+ul {
+    width: 500%;
+    position: absolute;
+    list-style-type: none;
+}
+li {
+    float: left;
+}
+.square {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+.square span {
+    width: 16px;
+    height: 16px;
+    margin: 5px;
+    line-height: 17px;
+    display: inline-block;
+    text-align: center;
+    background-color: indianred;
+    color: white;
+    border: 1px solid #cccccc;
+}
+.square .current {
+    background-color: orange;
+    color: #000;
+}

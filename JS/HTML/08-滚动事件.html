@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>滚动事件</title>
+    <style>
+        body {
+            width: 5000px;
+            height: 5000px;
+        }
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: indianred;
+            border: 1px solid #000;
+        }
+    </style>
+</head>
+<script>
+    window.onscroll = function () {
+        console.log("scroll().top = "+scroll().top);
+        console.log("scroll().left = "+scroll().left);
+    }
+    window.onload = function () {
+        var div = document.getElementsByClassName("box")[0];
+        //scrollWidth和scrollHeight不包括marain和border , 包括padding的距离
+        //scrollHeight如果内容超出盒子的高度 , 高度为内容的高度.
+        console.log("div.scrollWidth = "+div.scrollWidth);
+        console.log("div.scrollHeight = "+div.scrollHeight);
+    }
+    function scroll(){
+        return {
+            "top": window.pageYOffset || document.body.scrollTop || document.documentElement.scrollTop,
+            "left":  window.pageXOffset || document.body.scrollLeft || document.documentElement.scrollLeft
+        }
+    }
+</script>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

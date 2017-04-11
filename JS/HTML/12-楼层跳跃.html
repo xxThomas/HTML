@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>楼层跳跃</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body,html {
+            width: 100%;
+            height: 100%;
+        }
+        ul {
+            position: fixed;
+            list-style: none;
+            margin-top: 150px;
+            margin-left: 50px;
+        }
+        ul li {
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            text-align: center;
+            cursor: pointer;
+            border: 1px solid #000;
+        }
+        ol {
+            list-style: none;
+            height: 100%;
+        }
+        ol li {
+            width: 100%;
+            height: 100%;
+
+        }
+    </style>
+    <script src="../JS/animateTools.js"></script>
+
+</head>
+<script>
+    window.onload = function () {
+        var arrColor = ["indianred","orange","orangered","seagreen","blueviolet"];
+        //获取元素
+        var ol = document.getElementsByTagName("ol")[0];
+        var ul = document.getElementsByTagName("ul")[0];
+        var olLiArr = ol.children;
+        var ulLiArr = ul.children;
+        var olHeight = olLiArr[0].offsetHeight;
+
+        var target = 0;
+        var leader = 0;
+        var timer = null;
+        //为每个元素添加背景色
+        for(var i = 0 ; i < olLiArr.length;i++){
+            olLiArr[i].style.backgroundColor = arrColor[i];
+            ulLiArr[i].style.backgroundColor = arrColor[i];
+            ulLiArr[i].index = i;
+            ulLiArr[i].onmousemove = function () {
+                //添加滑动动画
+//                window.scrollTo(0,this.index * olHeight);
+                target = olLiArr[this.index].offsetTop;
+                clearInterval(timer);
+                timer = setInterval(function () {
+                    console.log(1);
+                    //设置步长
+                    var step = (target - leader)/10;
+                    step = step > 0 ? Math.ceil(step) : Math.floor(step);
+                    leader += step;
+                    window.scrollTo(0,leader);
+                    if (target === leader){
+                        clearInterval(timer);
+                    }
+                },30);
+            }
+        }
+        window.onscroll = function () {
+
+            leader = scroll().top;
+        }
+
+    }
+</script>
+<body>
+    <ul>
+        <li>服装</li>
+        <li>电器</li>
+        <li>手机</li>
+        <li>家居</li>
+        <li>美妆</li>
+    </ul>
+    <ol>
+        <li>服装区域</li>
+        <li>电器区域</li>
+        <li>手机区域</li>
+        <li>家居区域</li>
+        <li>美妆区域</li>
+    </ol>
+</body>
+</html>
